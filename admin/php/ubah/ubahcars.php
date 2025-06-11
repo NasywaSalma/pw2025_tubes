@@ -116,29 +116,35 @@ if (isset($_POST['submit'])) {
         <input type="hidden" name="id" value="<?= htmlspecialchars($cars['id']) ?>">
         <input type="hidden" name="gambar_lama" value="<?= htmlspecialchars($cars['img']) ?>">
 
-        <label for="name">Nama Mobil:</label>
+        <label for="name">Car Name:</label>
         <input type="text" id="name" name="name" value="<?= htmlspecialchars($cars['name']) ?>" required>
 
-        <label for="year">Tahun:</label>
+        <label for="year">Year:</label>
         <input type="number" id="year" name="year" value="<?= htmlspecialchars($cars['year']) ?>" required>
 
-        <label for="price">Harga:</label>
+        <label for="price">Price:</label>
         <input type="number" id="price" name="price" value="<?= htmlspecialchars($cars['price']) ?>" required>
 
-        <label for="transmission">Transmisi:</label>
+        <label for="transmission">Transmission:</label>
         <input type="text" id="transmission" name="transmission" value="<?= htmlspecialchars($cars['transmission']) ?>" required>
 
-        <label for="fuel_type">Tipe Bahan Bakar:</label>
+        <label for="fuel_type">Fuel Type:</label>
         <input type="text" id="fuel_type" name="fuel_type" value="<?= htmlspecialchars($cars['fuel_type']) ?>" required>
 
-      
-
-        <label for="rate">Rating:</label>
+        <label for="rate">Rate:</label>
         <input type="number" step="0.1" id="rate" name="rate" value="<?= htmlspecialchars($cars['rate']) ?>" required>
+
+        <label for="info">Detail:</label>
+        <input type="text" id="info" name="info" value="<?= htmlspecialchars($cars['info']) ?>" required>
+
+         <label for="sold">Sold Out:</label>
+        <input type="number" id="sold" name="sold" value="<?= htmlspecialchars($cars['sold']) ?>" required>
+
+
 
         <label for="img">Gambar Saat Ini:</label><br>
         <?php if (!empty($cars['img'])): ?>
-            <img src="../../../assets/img/<?= htmlspecialchars($cars['img']); ?>" alt="Mobil" width="120"><br><br>
+            <img src="../../../img/<?= htmlspecialchars($cars['img']); ?>" alt="Mobil" width="120"><br><br>
         <?php else: ?>
             <span style="color:#888;">Tidak ada gambar</span><br><br>
         <?php endif; ?>

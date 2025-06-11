@@ -26,13 +26,6 @@
 
         <a href="#" class="logo"> <span>auto</span>style</a>
 
-        <!-- Search Section -->
-<div class="search-container">
-  <form action="#">
-    <input type="text" name="keyword" placeholder="Search your car..." class="box" required>
-    <input type="submit" value="Search" class="btn">
-  </form>
-</div>
 
         <nav class="navbar">
             <a href="#home">home</a>
@@ -111,7 +104,7 @@
         
             <?php foreach ($cars as $mhs): ?>
                 <div class="swiper-slide box">
-                    <img src="../img/<?= htmlspecialchars($mhs['img']); ?>" alt="">
+                    <img src="../../img/<?= htmlspecialchars($mhs['img']); ?>" alt="">
                     <div class="content">
                         <h3><?= htmlspecialchars($mhs['name']); ?></h3>
                         <div class="price"><span>price: </span>$<?= htmlspecialchars($mhs['price']); ?>/-</div>

@@ -30,7 +30,6 @@
             <a href="#home">home</a>
             <a href="#vehicles">vehicles</a>
             <a href="#services">services</a>
-            <a href="#featured">featured</a>
             <a href="#research">riview</a>
             <a href="#contact">contact</a>
         </nav>
@@ -103,7 +102,7 @@
         
             <?php foreach ($cars as $mhs): ?>
                 <div class="swiper-slide box">
-                    <img src="../img/<?= htmlspecialchars($mhs['img']); ?>" alt="">
+                    <img src="../../img/<?= htmlspecialchars($mhs['img']); ?>" alt="">
                     <div class="content">
                         <h3><?= htmlspecialchars($mhs['name']); ?></h3>
                         <div class="price"><span>price: </span>$<?= htmlspecialchars($mhs['price']); ?>/-</div>
@@ -113,7 +112,7 @@
                             <span class="fas fa-circle"></span> <?= htmlspecialchars($mhs['fuel_type']); ?>
                             <span class="fas fa-circle"></span> <?= htmlspecialchars($mhs['horsepower']); ?>
                         </p>
-                        <a href="info copy.php?id=<?= $mhs['id']; ?>" class="btn">Read More</a>
+                        <a href="detail/detail2.php?id=<?= $mhs['id']; ?>"" class="btn">Read More</a>
                     </div>
                 </div>
             <?php endforeach; ?>

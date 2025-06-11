@@ -19,7 +19,7 @@ function select($query)
 }
 
 // Ambil data pendaftaran akun
-$data_pendaftaran = select("SELECT * FROM orders ORDER BY id DESC");
+$data_pendaftaran = select("SELECT * FROM cars ORDER BY id DESC");
 $total_pendaftaran = count($data_pendaftaran);
 ?>
 
@@ -28,7 +28,7 @@ $total_pendaftaran = count($data_pendaftaran);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Panel - Data Pendaftaran Akun</title>
+    <title>Admin Panel - Cars Data</title>
     <link rel="icon" href="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -199,7 +199,7 @@ $total_pendaftaran = count($data_pendaftaran);
                     <i class="bi bi-person-plus me-2"></i>Contact
                 </a>
             </li>
-             <li class="nav-item mb-2">
+            <li class="nav-item mb-2">
                 <a class="nav-link text-white" href="detail.php">
                     <i class="bi bi-person-plus me-2"></i>info
                 </a>
@@ -209,7 +209,7 @@ $total_pendaftaran = count($data_pendaftaran);
                     <i class="bi bi-box-arrow-right me-2"></i>Logout
                 </a>
             </li>
-            </li>
+            
         </ul>
     </div>
 </div>
@@ -218,7 +218,7 @@ $total_pendaftaran = count($data_pendaftaran);
     <div class="container mt-4 mb-5">
         <div class="card shadow-lg">
             <div class="header text-white d-flex justify-content-between align-items-center bg-primary p-3 rounded-top">
-                <h4 class="mb-0"><i class="bi bi-table me-2"></i>Popular Vehicles this  Seasson</h4>
+                <h4 class="mb-0"><i class="bi bi-table me-2"></i>CARS DATA</h4>
                 <a href="#" class="btn btn-light btn-custom shadow-sm"><i class="bi bi-plus-circle me-1"></i>add data</a>
             </div>
             <div class="card-body">
@@ -227,21 +227,11 @@ $total_pendaftaran = count($data_pendaftaran);
                         <thead class="table-light">
                             <tr>
                                 <th>no</th>
-                                <th>Vehicles Id</th>
-                                <th>first name</th>
-                                <th>last name</th>
-                                <th>Driving License</th>
-                                <th>Address0</th>
-                                <th>address1</th>
-                                <th>Town/City</th>
-                                <th>Pastcode/Zip</th>
-                                <th>Country/State</th>
-                                <th>payment</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>note</th>
-                                <th>Order Date</th>
-                                <th>action</th>
+                                <th>Name</th>
+                                <th>info</th>
+                                <th>sold</th>
+                                <th>img</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -250,25 +240,15 @@ $total_pendaftaran = count($data_pendaftaran);
                                 <?php foreach ($data_pendaftaran as $akun): ?>
                                     <tr>
                                         <td><?= $no++; ?></td>
-                                        <td><?= ($akun['vehicle_id']); ?></td>
-                                        <td><?= ($akun['first_name']); ?></td>
-                                        <td><?= ($akun['last_name']); ?></td>
-                                        <td><?= ($akun['draving_license']); ?></td>
-                                        <td><?= ($akun['address0']); ?></td>
-                                        <td><?= ($akun['address1']); ?></td>
-                                        <td><?= ($akun['town/city']); ?></td>
-                                        <td><?= ($akun['pastcode/zip']); ?></td>
-                                        <td><?= ($akun['country/state']); ?></td>
-                                        <td><?= ($akun['payment']); ?></td>
-                                        <td><?= ($akun['email']); ?></td>
-                                        <td><?= ($akun['phone']); ?></td>
-                                        <td><?= ($akun['note']); ?></td>
-                                        <td><?= ($akun['order_date']); ?></td>
+                                        <td><?= ($akun['name']); ?></td>
+                                        <td><?= ($akun['info']); ?></td>
+                                        <td><?= ($akun['sold']); ?></td>
+                                        <td><?= ($akun['img']); ?></td>
                                         <td class="aksi-btns">
-                                            <a href="ubah/ubah-akun.php?id=<?= $akun['id']; ?>" class="btn btn-success btn-sm btn-custom" title="Ubah Data">
+                                            <a href="ubah/ubahcars.php?id=<?= $akun['id']; ?>" class="btn btn-success btn-sm btn-custom" title="Ubah Data">
                                                 <i class="bi bi-pencil-square"></i>
                                             </a>
-                                            <a href="hapus/hapusorders.php?id=<?= $akun['id']; ?>" class="btn btn-danger btn-sm btn-custom" onclick="return confirm('Delete this data?');" title="Hapus Data">
+                                            <a href="hapus/hapus.cars.php?id=<?= $akun['id']; ?>" class="btn btn-danger btn-sm btn-custom" onclick="return confirm('delete this data?');" title="Hapus Data">
                                                 <i class="bi bi-trash"></i>
                                             </a>
                                         </td>

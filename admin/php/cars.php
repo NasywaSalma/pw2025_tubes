@@ -28,7 +28,7 @@ $total_pendaftaran = count($data_pendaftaran);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Panel - Data Pendaftaran Akun</title>
+    <title>Admin Panel - Cars Data</title>
     <link rel="icon" href="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -169,13 +169,13 @@ $total_pendaftaran = count($data_pendaftaran);
         <img src="https://ui-avatars.com/api/?name=Admin&background=0d6efd&color=fff" class="avatar mb-2" alt="Admin">
         <a class="navbar-brand text-white fw-bold px-3 mb-4 d-block" href="#"><i class="bi bi-speedometer2 me-2"></i>Admin Panel</a>
         <ul class="nav flex-column text-start px-3">
-            <li class="nav-item mb-2">
+            <!--<li class="nav-item mb-2">
                 <a class="nav-link text-white active" href="#">
                     <i class="bi bi-house-door me-2"></i>Dashboard
                 </a>
-            </li>
+            </li>-->
             <li class="nav-item mb-2">
-                <a class="nav-link text-white" href="index.php">
+                <a class="nav-link text-white" href="orders.php">
                     <i class="bi bi-person-plus me-2"></i>Orders
                 </a>
             </li>
@@ -185,18 +185,23 @@ $total_pendaftaran = count($data_pendaftaran);
                 </a>
             </li>
             <li class="nav-item mb-2">
-                <a class="nav-link text-white" href="cars.php">
+                <a class="nav-link text-white" href="vehicles.php">
                     <i class="bi bi-person-plus me-2"></i>Popular Vihecles
                 </a>
             </li>
             <li class="nav-item mb-2">
-                <a class="nav-link text-white" href="cars.php">
+                <a class="nav-link text-white" href="subscribe.php">
                     <i class="bi bi-person-plus me-2"></i>Subscribe
                 </a>
             </li>
             <li class="nav-item mb-2">
-                <a class="nav-link text-white" href="cars.php">
+                <a class="nav-link text-white" href="contact.php">
                     <i class="bi bi-person-plus me-2"></i>Contact
+                </a>
+            </li>
+             <li class="nav-item mb-2">
+                <a class="nav-link text-white" href="detail.php">
+                    <i class="bi bi-person-plus me-2"></i>info
                 </a>
             </li>
             <li class="nav-item mb-2">
@@ -212,8 +217,8 @@ $total_pendaftaran = count($data_pendaftaran);
     <div class="container mt-4 mb-5">
         <div class="card shadow-lg">
             <div class="header text-white d-flex justify-content-between align-items-center bg-primary p-3 rounded-top">
-                <h4 class="mb-0"><i class="bi bi-table me-2"></i>Data Pendaftaran Akun</h4>
-                <a href="#" class="btn btn-light btn-custom shadow-sm"><i class="bi bi-plus-circle me-1"></i>Tambah Data</a>
+                <h4 class="mb-0"><i class="bi bi-table me-2"></i>CARS DATA</h4>
+                <a href="#" class="btn btn-light btn-custom shadow-sm"><i class="bi bi-plus-circle me-1"></i>add data</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -221,6 +226,7 @@ $total_pendaftaran = count($data_pendaftaran);
                         <thead class="table-light">
                             <tr>
                                 <th>no</th>
+                                <th>Vehicle Id</th>
                                  <th>Name</th>
                                 <th>Price</th>
                                 <th>Year</th>
@@ -228,6 +234,8 @@ $total_pendaftaran = count($data_pendaftaran);
                                 <th>Fuel Type</th>
                                 <th>Horse Power</th>
                                 <th>Rate</th>
+                                <th>info</th>
+                                <th>sold</th>
                                 <th>img</th>
                                 <th>Aksi</th>
                             </tr>
@@ -238,6 +246,7 @@ $total_pendaftaran = count($data_pendaftaran);
                                 <?php foreach ($data_pendaftaran as $akun): ?>
                                     <tr>
                                         <td><?= $no++; ?></td>
+                                        <td><?= ($akun['id']); ?></td>
                                         <td><?= ($akun['name']); ?></td>
                                         <td><?= ($akun['price']); ?></td>
                                         <td><?= ($akun['year']); ?></td>
@@ -245,12 +254,14 @@ $total_pendaftaran = count($data_pendaftaran);
                                         <td><?= ($akun['fuel_type']); ?></td>
                                         <td><?= ($akun['horsepower']); ?></td>
                                         <td><?= ($akun['rate']); ?></td>
+                                        <td><?= ($akun['info']); ?></td>
+                                        <td><?= ($akun['sold']); ?></td>
                                         <td><?= ($akun['img']); ?></td>
                                         <td class="aksi-btns">
                                             <a href="ubah/ubahcars.php?id=<?= $akun['id']; ?>" class="btn btn-success btn-sm btn-custom" title="Ubah Data">
                                                 <i class="bi bi-pencil-square"></i>
                                             </a>
-                                            <a href="hapus/hapus.cars.php?id=<?= $akun['id']; ?>" class="btn btn-danger btn-sm btn-custom" onclick="return confirm('Yakin ingin menghapus data ini?');" title="Hapus Data">
+                                            <a href="hapus/hapus.cars.php?id=<?= $akun['id']; ?>" class="btn btn-danger btn-sm btn-custom" onclick="return confirm('delete this data?');" title="Hapus Data">
                                                 <i class="bi bi-trash"></i>
                                             </a>
                                         </td>

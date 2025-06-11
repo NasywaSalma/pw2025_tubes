@@ -19,7 +19,7 @@ function select($query)
 }
 
 // Ambil data pendaftaran akun
-$data_pendaftaran = select("SELECT * FROM orders ORDER BY id DESC");
+$data_pendaftaran = select("SELECT * FROM subscribe ORDER BY id DESC");
 $total_pendaftaran = count($data_pendaftaran);
 ?>
 
@@ -204,12 +204,17 @@ $total_pendaftaran = count($data_pendaftaran);
                     <i class="bi bi-person-plus me-2"></i>info
                 </a>
             </li>
+             <li class="nav-item mb-2">
+                <a class="nav-link text-white" href="detail.php">
+                    <i class="bi bi-person-plus me-2"></i>info
+                </a>
+            </li>
             <li class="nav-item mb-2">
                 <a class="nav-link text-white" href="../../logout.php">
                     <i class="bi bi-box-arrow-right me-2"></i>Logout
                 </a>
             </li>
-            </li>
+
         </ul>
     </div>
 </div>
@@ -218,7 +223,7 @@ $total_pendaftaran = count($data_pendaftaran);
     <div class="container mt-4 mb-5">
         <div class="card shadow-lg">
             <div class="header text-white d-flex justify-content-between align-items-center bg-primary p-3 rounded-top">
-                <h4 class="mb-0"><i class="bi bi-table me-2"></i>Popular Vehicles this  Seasson</h4>
+                <h4 class="mb-0"><i class="bi bi-table me-2"></i>Contact</h4>
                 <a href="#" class="btn btn-light btn-custom shadow-sm"><i class="bi bi-plus-circle me-1"></i>add data</a>
             </div>
             <div class="card-body">
@@ -227,21 +232,8 @@ $total_pendaftaran = count($data_pendaftaran);
                         <thead class="table-light">
                             <tr>
                                 <th>no</th>
-                                <th>Vehicles Id</th>
-                                <th>first name</th>
-                                <th>last name</th>
-                                <th>Driving License</th>
-                                <th>Address0</th>
-                                <th>address1</th>
-                                <th>Town/City</th>
-                                <th>Pastcode/Zip</th>
-                                <th>Country/State</th>
-                                <th>payment</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>note</th>
-                                <th>Order Date</th>
-                                <th>action</th>
+                                <th>email</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -250,25 +242,11 @@ $total_pendaftaran = count($data_pendaftaran);
                                 <?php foreach ($data_pendaftaran as $akun): ?>
                                     <tr>
                                         <td><?= $no++; ?></td>
-                                        <td><?= ($akun['vehicle_id']); ?></td>
-                                        <td><?= ($akun['first_name']); ?></td>
-                                        <td><?= ($akun['last_name']); ?></td>
-                                        <td><?= ($akun['draving_license']); ?></td>
-                                        <td><?= ($akun['address0']); ?></td>
-                                        <td><?= ($akun['address1']); ?></td>
-                                        <td><?= ($akun['town/city']); ?></td>
-                                        <td><?= ($akun['pastcode/zip']); ?></td>
-                                        <td><?= ($akun['country/state']); ?></td>
-                                        <td><?= ($akun['payment']); ?></td>
                                         <td><?= ($akun['email']); ?></td>
-                                        <td><?= ($akun['phone']); ?></td>
-                                        <td><?= ($akun['note']); ?></td>
-                                        <td><?= ($akun['order_date']); ?></td>
+                    
                                         <td class="aksi-btns">
-                                            <a href="ubah/ubah-akun.php?id=<?= $akun['id']; ?>" class="btn btn-success btn-sm btn-custom" title="Ubah Data">
-                                                <i class="bi bi-pencil-square"></i>
-                                            </a>
-                                            <a href="hapus/hapusorders.php?id=<?= $akun['id']; ?>" class="btn btn-danger btn-sm btn-custom" onclick="return confirm('Delete this data?');" title="Hapus Data">
+                                           
+                                            <a href="hapus/hapussubscribe.php?id=<?= $akun['id']; ?>" class="btn btn-danger btn-sm btn-custom" onclick="return confirm('Delete this contact?');" title="Hapus Data">
                                                 <i class="bi bi-trash"></i>
                                             </a>
                                         </td>

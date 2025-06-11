@@ -19,7 +19,7 @@ function query($query)
     return $rows;
 }
 
-//tambah produk
+//tambah produk cars
 function tambah_produk($data)
 {
     $conn = koneksi();
@@ -29,8 +29,9 @@ function tambah_produk($data)
     $price = htmlspecialchars($data['price']);
     $transmission = htmlspecialchars($data['transmission']);
     $fuel_type = htmlspecialchars($data['fuel_type']);
- 
     $rate = htmlspecialchars($data['rate']);
+    $info = htmlspecialchars($data['info']);
+    $sold = htmlspecialchars($data['sold']);
     $img = upload();
 
     if (!$img) {
@@ -44,10 +45,67 @@ function tambah_produk($data)
                     price = '$price',
                     transmission = '$transmission',
                     fuel_type = '$fuel_type',
-                   
+                    info = '$info',
+                    sold = '$sold',
                     rate = '$rate',
                     img = '$img'
                 WHERE id = $id";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+//function untuk menghapus cars
+
+function hapus_menu($id) {
+     $conn = koneksi();
+    $query = "DELETE FROM cars WHERE id = $id";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+//tambah produk vehicles
+function tambah_vehicles($data)
+{
+    $conn = koneksi();
+    $id = $data['id'];
+    $name = htmlspecialchars($data['name']);
+    $price = htmlspecialchars($data['price']);
+    $year = htmlspecialchars($data['year']);
+    $transmission = htmlspecialchars($data['transmission']);
+    $fuel_type = htmlspecialchars($data['fuel_type']);
+    $horsepower = htmlspecialchars($data['horsepower']);
+    $info = htmlspecialchars($data['info']);
+    $sold = htmlspecialchars($data['sold']);
+    $img = upload();
+
+    if (!$img) {
+        return false;
+    }
+
+    $query = "UPDATE popularvehicles 
+                SET 
+                    name = '$name',
+                    price = '$price',
+                    year = '$year',
+                    transmission = '$transmission',
+                    fuel_type = '$fuel_type',
+                    horsepower = '$horsepower',
+                    info = '$info',
+                    sold = '$sold',
+                    img = '$img'
+                WHERE id = $id";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+//function untuk menghapus vehicles
+
+function hapus_vehicles($id) {
+     $conn = koneksi();
+    $query = "DELETE FROM popularvehicles WHERE id = $id";
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
@@ -100,11 +158,32 @@ function upload()
     return $namaFileBaru;
 }
 
-//function untuk menghapus cars
 
-function hapus_menu($id) {
+
+//function untuk menghapus contact
+
+function hapus_contact($id) {
      $conn = koneksi();
-    $query = "DELETE FROM cars WHERE id = $id";
+    $query = "DELETE FROM contact WHERE id = $id";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+//function untuk menghapus subscribe
+
+function hapus_subscribe($id) {
+     $conn = koneksi();
+    $query = "DELETE FROM subscribe WHERE id = $id";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+//function untuk menghapus orders
+function hapus_orders($id) {
+     $conn = koneksi();
+    $query = "DELETE FROM orders WHERE id = $id";
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);

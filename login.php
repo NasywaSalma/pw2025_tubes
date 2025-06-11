@@ -6,6 +6,13 @@
      } else {
          $error = true;
      }
+
+     if ($_POST["username"] == "hh" && $_POST["password"] == "hh") {
+         header("Location: admin/php/index.php");
+         exit;
+     } else {
+         $error = true;
+     }
  }
  ?>
  
