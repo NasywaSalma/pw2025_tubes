@@ -314,7 +314,7 @@ foreach ($car_data as $mhs):
     <input type="hidden" name="order_date" value="<?= date('Y-m-d H:i:s'); ?>">
 
     <button type="submit" class="btn">Place Order</button>
-    <a href=".checkout2.php" class="btn" style="text-align: center; display: inline-block; text-decoration: none;">Cancel</a>
+    <a href="../gallery.php" class="btn" style="text-align: center; display: inline-block; text-decoration: none;">Cancel</a>
 
     </form>
     </div>

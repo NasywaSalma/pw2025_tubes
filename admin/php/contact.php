@@ -167,7 +167,7 @@ $total_pendaftaran = count($data_pendaftaran);
 <div class="sidebar shadow" id="sidebarNav">
     <div class="sidebar-sticky pt-4 text-center">
         <img src="https://ui-avatars.com/api/?name=Admin&background=0d6efd&color=fff" class="avatar mb-2" alt="Admin">
-        <a class="navbar-brand text-white fw-bold px-3 mb-4 d-block" href="#"><i class="bi bi-speedometer2 me-2"></i>Admin Panel</a>
+        <a class="navbar-brand text-white fw-bold px-3 mb-4 d-block" href="#"><i class="bi bi-speedometer2 me-2"></i>Auto<span>Style</span></a>
         <ul class="nav flex-column text-start px-3">
             <!--<li class="nav-item mb-2">
                 <a class="nav-link text-white active" href="#">
@@ -219,7 +219,7 @@ $total_pendaftaran = count($data_pendaftaran);
         <div class="card shadow-lg">
             <div class="header text-white d-flex justify-content-between align-items-center bg-primary p-3 rounded-top">
                 <h4 class="mb-0"><i class="bi bi-table me-2"></i>Contact</h4>
-                <a href="#" class="btn btn-light btn-custom shadow-sm"><i class="bi bi-plus-circle me-1"></i>add data</a>
+                <a href="tambah/contact.php" class="btn btn-light btn-custom shadow-sm"><i class="bi bi-plus-circle me-1"></i>add data</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -246,6 +246,9 @@ $total_pendaftaran = count($data_pendaftaran);
                                         <td><?= ($akun['message']); ?></td>
                     
                                         <td class="aksi-btns">
+
+                                            <a href="ubah/ubahcontact.php?id=<?= $akun['id']; ?>" class="btn btn-success btn-sm btn-custom" title="Ubah Data">
+                                                <i class="bi bi-pencil-square"></i>
                                            
                                             <a href="hapus/hapuscontact.php?id=<?= $akun['id']; ?>" class="btn btn-danger btn-sm btn-custom" onclick="return confirm('Delete this contact?');" title="Hapus Data">
                                                 <i class="bi bi-trash"></i>

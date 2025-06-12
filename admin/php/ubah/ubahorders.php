@@ -3,11 +3,11 @@ include '../../../public/php/function.php';
 
 // Ambil ID mobil dari parameter GET
 $id = (int)$_GET['id'];
-$cars = query("SELECT * FROM contact WHERE id = $id");
+$cars = query("SELECT * FROM orders WHERE id = $id");
 $cars = $cars[0];
 
 if (isset($_POST['submit'])) {
-    if (tambah_contact($_POST) > 0) {
+    if (tambah_orders($_POST) > 0) {
         echo "<script>
                 alert('Data mobil berhasil diubah!');
                 document.location.href = '../cars.php';
@@ -110,22 +110,50 @@ if (isset($_POST['submit'])) {
 </head>
 </head>
 <body>
-    <h1>Change Contact</h1>
+    <h1>Change Order</h1>
    
     <form action="" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= ($cars['id']) ?>">
+        <input type="hidden" name="id" value="<?= htmlspecialchars($cars['id']) ?>">
 
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" value="<?= ($cars['name']) ?>" required>
+        <label for="vehicle_id">Name:</label>
+        <input type="text" id="name" name="vehicle_id" value="<?= htmlspecialchars($cars['vehicle_id']) ?>" required>
+
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" value="<?= htmlspecialchars($cars['first_name']) ?>" required>
+
+        <label for="last_name">Last name:</label>
+        <input type="text" id="last_name" name="last_name" value="<?= htmlspecialchars($cars['last_name']) ?>" required>
+
+        <label for="draving_license">Driving Car:</label>
+        <input type="number" id="draving_license" name="draving_license" value="<?= htmlspecialchars($cars['draving_license']) ?>" required>
+
+        <label for="address0">Address1:</label>
+        <input type="text" id="address0" name="address0" value="<?= htmlspecialchars($cars['address0']) ?>" required>
+
+        <label for="address1">Address2:</label>
+        <input type="text" step="0.1" id="address1" name="address1" value="<?= htmlspecialchars($cars['address1']) ?>" required>
+
+        <label for="town_city">Town/city:</label>
+        <input type="text" id="town_city" name="town_city" value="<?= htmlspecialchars($cars['town/city']) ?>" required>
+
+         <label for="pastcode_zip">PastCode/Zip:</label>
+        <input type="number" id="pastcode_zip" name="pastcode_zip" value="<?= htmlspecialchars($cars['pastcode/zip']) ?>" required>
+
+        <label for="country_state">Country State:</label>
+        <input type="text" id="country_state" name="country_state" value="<?= htmlspecialchars($cars['country/state']) ?>" required>
 
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email" value="<?= ($cars['email']) ?>" required>
+        <input type="text" id="email" name="email" value="<?= htmlspecialchars($cars['email']) ?>" required>
 
-        <label for="number">Number:</label>
-        <input type="number" id="number" name="number" value="<?= ($cars['number']) ?>" required>
+        <label for="phone">Phone:</label>
+        <input type="number" id="phone" name="phone" value="<?= htmlspecialchars($cars['phone']) ?>" required>
 
-        <label for="message">Message:</label>
-        <input type="text" id="message" name="message" value="<?= ($cars['message']) ?>" required>
+        <label for="login">Note:</label>:</label>
+        <input type="text" id="note" name="note" value="<?= htmlspecialchars($cars['note']) ?>" required>
+
+        <label for="payment">payment:</label>
+        <input type="text" id="payment" name="payment" value="<?= htmlspecialchars($cars['payment']) ?>" required>
+
 
         <button type="submit" name="submit">Ubah Data</button>
     </form>

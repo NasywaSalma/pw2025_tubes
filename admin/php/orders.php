@@ -167,7 +167,7 @@ $total_pendaftaran = count($data_pendaftaran);
 <div class="sidebar shadow" id="sidebarNav">
     <div class="sidebar-sticky pt-4 text-center">
         <img src="https://ui-avatars.com/api/?name=Admin&background=0d6efd&color=fff" class="avatar mb-2" alt="Admin">
-        <a class="navbar-brand text-white fw-bold px-3 mb-4 d-block" href="#"><i class="bi bi-speedometer2 me-2"></i>Admin Panel</a>
+        <a class="navbar-brand text-white fw-bold px-3 mb-4 d-block" href="#"><i class="bi bi-speedometer2 me-2"></i>Auto<span>Style</span></a>
         <ul class="nav flex-column text-start px-3">
             <!--<li class="nav-item mb-2">
                 <a class="nav-link text-white active" href="#">
@@ -265,7 +265,7 @@ $total_pendaftaran = count($data_pendaftaran);
                                         <td><?= ($akun['note']); ?></td>
                                         <td><?= ($akun['order_date']); ?></td>
                                         <td class="aksi-btns">
-                                            <a href="ubah/ubah-akun.php?id=<?= $akun['id']; ?>" class="btn btn-success btn-sm btn-custom" title="Ubah Data">
+                                            <a href="ubah/ubahorders.php?id=<?= $akun['id']; ?>" class="btn btn-success btn-sm btn-custom" title="Ubah Data">
                                                 <i class="bi bi-pencil-square"></i>
                                             </a>
                                             <a href="hapus/hapusorders.php?id=<?= $akun['id']; ?>" class="btn btn-danger btn-sm btn-custom" onclick="return confirm('Delete this data?');" title="Hapus Data">

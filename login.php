@@ -1,20 +1,33 @@
 <?php
- if (isset($_POST["submit"])) {
-     if ($_POST["username"] == "admin" && $_POST["password"] == "admin") {
-         header("Location: public/php/web.php");
-         exit;
-     } else {
-         $error = true;
-     }
+session_start();
+require 'public/koneksi.php'; // koneksi menggunakan variabel $conn
 
-     if ($_POST["username"] == "hh" && $_POST["password"] == "hh") {
-         header("Location: admin/php/index.php");
-         exit;
-     } else {
-         $error = true;
-     }
- }
- ?>
+if (isset($_POST['login'])) {
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+    $result = mysqli_query($conn, "SELECT * FROM login WHERE username = '$username'");
+
+    if (mysqli_num_rows($result) === 1) {
+        $user = mysqli_fetch_assoc($result);
+
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['login'] = true;
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['fullname'] = $user['fullname'];
+            $_SESSION['email'] = $user['email'];
+
+            header("Location: ./public/php/index.php");
+            exit;
+        } else {
+            $error = "Password salah!";
+        }
+    } else {
+        $error = "Nama tidak ditemukan!";
+    }
+}
+?>
+
  
  <!DOCTYPE html>
  <html lang="en">
@@ -130,14 +143,15 @@
          <?php endif; ?>
             
          <form action="" method="post">
-             <label for="username">Username :</label>
-             <input type="text" name="username" id="username">
- 
-             <label for="password">Password :</label>
-             <input type="password" name="password" id="password">
- 
-             <button type="submit" name="submit">Login</button>
-         </form>
+    <label for="username">Username :</label>
+    <input type="text" name="username" id="username" required>
+
+    <label for="password">Password :</label>
+    <input type="password" name="password" id="password" required>
+
+    <button type="submit" name="login">Login</button>
+</form>
+
      </div>
      
  </body>

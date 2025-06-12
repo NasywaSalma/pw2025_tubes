@@ -3,11 +3,11 @@ include '../../../public/php/function.php';
 
 // Ambil ID mobil dari parameter GET
 $id = (int)$_GET['id'];
-$cars = query("SELECT * FROM contact WHERE id = $id");
+$cars = query("SELECT * FROM subscribe WHERE id = $id");
 $cars = $cars[0];
 
 if (isset($_POST['submit'])) {
-    if (tambah_contact($_POST) > 0) {
+    if (tambah_subscribe($_POST) > 0) {
         echo "<script>
                 alert('Data mobil berhasil diubah!');
                 document.location.href = '../cars.php';
@@ -113,21 +113,12 @@ if (isset($_POST['submit'])) {
     <h1>Change Contact</h1>
    
     <form action="" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= ($cars['id']) ?>">
-
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" value="<?= ($cars['name']) ?>" required>
+         <input type="hidden" name="id" value="<?= ($cars['id']) ?>">
 
         <label for="email">Email:</label>
         <input type="text" id="email" name="email" value="<?= ($cars['email']) ?>" required>
 
-        <label for="number">Number:</label>
-        <input type="number" id="number" name="number" value="<?= ($cars['number']) ?>" required>
-
-        <label for="message">Message:</label>
-        <input type="text" id="message" name="message" value="<?= ($cars['message']) ?>" required>
-
-        <button type="submit" name="submit">Ubah Data</button>
+        <button type="submit" name="submit">Change Data</button>
     </form>
 </body>
 </html>

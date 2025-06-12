@@ -190,3 +190,82 @@ function hapus_orders($id) {
 
     return mysqli_affected_rows($conn);
 }
+
+//ubah produk contact
+function tambah_contact($data)
+{
+    $conn = koneksi();
+    $id = $data['id'];
+    $name = htmlspecialchars($data['name']);
+    $email = htmlspecialchars($data['email']);
+    $number = htmlspecialchars($data['number']);
+    $message = htmlspecialchars($data['message']);
+    
+    $query = "UPDATE contact 
+                SET 
+                    name = '$name',
+                    email = '$email',
+                    number = '$number',
+                    message = '$message'
+                WHERE id = $id";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+//ubah subscribe
+function tambah_subscribe($data)
+{
+    $conn = koneksi();
+    $id = $data['id'];
+    $email = htmlspecialchars($data['email']);
+    
+    $query = "UPDATE subscribe
+                SET 
+                    email = '$email'
+                WHERE id = $id";               
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+//tambah produk orders
+function tambah_orders($data)
+{
+    $conn = koneksi();
+    $id = $data['id'];
+    $vehicle_id = htmlspecialchars($data['vehicle_id']);
+    $first_name = htmlspecialchars($data['first_name']);
+    $last_name = htmlspecialchars($data['last_name']);
+    $draving_license = htmlspecialchars($data['draving_license']);
+    $address0 = htmlspecialchars($data['address0']);
+    $address1 = htmlspecialchars($data['address1']);
+    $town_city = htmlspecialchars($data['town_city']);
+    $pastcode_zip = htmlspecialchars($data['pastcode_zip']);
+    $country_state = htmlspecialchars($data['country_state']);
+    $email = htmlspecialchars($data['email']);
+    $phone = htmlspecialchars($data['phone']);
+    $note = htmlspecialchars($data['note']);
+    $payment = htmlspecialchars($data['payment']);
+
+    
+    $query = "UPDATE orders 
+                SET 
+                    vehicle_id = '$vehicle_id',
+                    first_name = '$first_name',
+                    last_name = '$last_name',
+                    draving_license = '$draving_license',
+                    address0 = '$address0',
+                    address1 = '$address1',
+                    town_city = '$town_city',
+                    pastcode_zip = '$pastcode_zip',
+                    country_state = '$country_state',
+                    email = '$email',
+                    phone = '$phone',
+                    note = '$note',
+                    payment = '$payment',
+                WHERE id = $id";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}

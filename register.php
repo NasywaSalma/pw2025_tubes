@@ -1,14 +1,31 @@
 <?php
- if (isset($_POST["submit"])) {
-     if ($_POST["fullname"] == "admin" && $_POST["username"] == "admin" && $_POST["password"] == "admin") {
-         header("Location:login.php");
-         exit;
-     } else {
-         $error = true;
-     }
- }
- ?>
- 
+include './public/php/function.php';
+
+$conn = koneksi();
+
+if (isset($_POST['submit'])) {
+    $fullname = mysqli_real_escape_string($conn, $_POST['fullname']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash password
+
+    // Cek apakah username sudah ada
+    $cek = mysqli_query($conn, "SELECT username FROM login WHERE username = '$username'");
+    if (mysqli_num_rows($cek) > 0) {
+        $error = "Username sudah digunakan!";
+    } else {
+        $query = "INSERT INTO login (
+            fullname, username, email, password
+        ) VALUES (
+            '$fullname', '$username', '$email', '$password'
+        )";
+
+        mysqli_query($conn, $query);
+        header("Location: login.php");
+        exit;
+    }
+}
+?>
  <!DOCTYPE html>
  <html lang="en">
  
@@ -128,6 +145,9 @@
 
              <label for="username">Username :</label>
              <input type="text" name="username" id="username">
+
+                <label for="email">Username :</label>
+             <input type="text" name="email" id="email">
  
              <label for="password">Password :</label>
              <input type="password" name="password" id="password">
