@@ -26,14 +26,14 @@ function tambah_produk($data)
 {
     $conn = koneksi();
     $id = $data['id'];
-    $name = htmlspecialchars($data['name']);
-    $year = htmlspecialchars($data['year']);
-    $price = htmlspecialchars($data['price']);
-    $transmission = htmlspecialchars($data['transmission']);
-    $fuel_type = htmlspecialchars($data['fuel_type']);
-    $rate = htmlspecialchars($data['rate']);
-    $info = htmlspecialchars($data['info']);
-    $sold = htmlspecialchars($data['sold']);
+    $name = ($data['name']);
+    $year = ($data['year']);
+    $price = ($data['price']);
+    $transmission = ($data['transmission']);
+    $fuel_type = ($data['fuel_type']);
+    $rate = ($data['rate']);
+    $info = ($data['info']);
+    $sold = ($data['sold']);
     $img = upload();
 
     if (!$img) {
@@ -72,14 +72,14 @@ function tambah_vehicles($data)
 {
     $conn = koneksi();
     $id = $data['id'];
-    $name = htmlspecialchars($data['name']);
-    $price = htmlspecialchars($data['price']);
-    $year = htmlspecialchars($data['year']);
-    $transmission = htmlspecialchars($data['transmission']);
-    $fuel_type = htmlspecialchars($data['fuel_type']);
-    $horsepower = htmlspecialchars($data['horsepower']);
-    $info = htmlspecialchars($data['info']);
-    $sold = htmlspecialchars($data['sold']);
+    $name = ($data['name']);
+    $price = ($data['price']);
+    $year = ($data['year']);
+    $transmission = ($data['transmission']);
+    $fuel_type = ($data['fuel_type']);
+    $horsepower = ($data['horsepower']);
+    $info = ($data['info']);
+    $sold = ($data['sold']);
     $img = upload();
 
     if (!$img) {
@@ -196,10 +196,10 @@ function tambah_contact($data)
 {
     $conn = koneksi();
     $id = $data['id'];
-    $name = htmlspecialchars($data['name']);
-    $email = htmlspecialchars($data['email']);
-    $number = htmlspecialchars($data['number']);
-    $message = htmlspecialchars($data['message']);
+    $name = ($data['name']);
+    $email = ($data['email']);
+    $number = ($data['number']);
+    $message = ($data['message']);
     
     $query = "UPDATE contact 
                 SET 
@@ -218,7 +218,7 @@ function tambah_subscribe($data)
 {
     $conn = koneksi();
     $id = $data['id'];
-    $email = htmlspecialchars($data['email']);
+    $email = ($data['email']);
     
     $query = "UPDATE subscribe
                 SET 
@@ -234,19 +234,19 @@ function tambah_orders($data)
 {
     $conn = koneksi();
     $id = $data['id'];
-    $vehicle_id = htmlspecialchars($data['vehicle_id']);
-    $first_name = htmlspecialchars($data['first_name']);
-    $last_name = htmlspecialchars($data['last_name']);
-    $draving_license = htmlspecialchars($data['draving_license']);
-    $address0 = htmlspecialchars($data['address0']);
-    $address1 = htmlspecialchars($data['address1']);
-    $town_city = htmlspecialchars($data['town_city']);
-    $pastcode_zip = htmlspecialchars($data['pastcode_zip']);
-    $country_state = htmlspecialchars($data['country_state']);
-    $email = htmlspecialchars($data['email']);
-    $phone = htmlspecialchars($data['phone']);
-    $note = htmlspecialchars($data['note']);
-    $payment = htmlspecialchars($data['payment']);
+    $vehicle_id = ($data['vehicle_id']);
+    $first_name = ($data['first_name']);
+    $last_name = ($data['last_name']);
+    $draving_license = ($data['draving_license']);
+    $address0 = ($data['address0']);
+    $address1 = ($data['address1']);
+    $town_city = ($data['town_city']);
+    $pastcode_zip = ($data['pastcode_zip']);
+    $country_state = ($data['country_state']);
+    $email = ($data['email']);
+    $phone = ($data['phone']);
+    $note = ($data['note']);
+    $payment = ($data['payment']);
 
     
     $query = "UPDATE orders 

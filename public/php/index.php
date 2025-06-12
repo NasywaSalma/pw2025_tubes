@@ -34,9 +34,9 @@
             <a href="#contact">contact</a>
         </nav>
 
-        <a href="../../register.php">
+        <a href="../../index.php">
             <div id="login-btn">
-                <button class="btn">login</button>
+                <button class="btn">logout</button>
                 <i class="bi bi-people"></i>
             </div>
         </a>
@@ -357,7 +357,6 @@
                 <a href="#home"><i class="bi bi-house-door"></i> home </a>
                 <a href="#vehicles"><i class="bi bi-car-front"></i> vehicles </a>
                 <a href="#services"><i class="bi bi-gear-wide-connected"></i> services </a>
-                <a href="#featured"><i class="bi bi-sliders2"></i> featured </a>
                 <a href="#review"><i class="bi bi-envelope"></i> review </a>
                 <a href="#contact"><i class="bi bi-person-rolodex"></i> contact </a>
             </div>

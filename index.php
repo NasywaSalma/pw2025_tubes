@@ -119,6 +119,15 @@ if (isset($_POST['submit'])) {
              font-style: italic;
              margin-bottom: 10px;
          }
+
+         .dang {
+            color: rgb(255, 255, 255);
+         }
+
+         .dang a {
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+         }
      </style>
  </head>
  
@@ -146,13 +155,15 @@ if (isset($_POST['submit'])) {
              <label for="username">Username :</label>
              <input type="text" name="username" id="username">
 
-                <label for="email">Username :</label>
+                <label for="email">Email :</label>
              <input type="text" name="email" id="email">
  
              <label for="password">Password :</label>
              <input type="password" name="password" id="password">
  
              <button type="submit" name="submit">Login</button>
+            <div class="dang">already have an account? <a href="login.php">Login</a></div> 
+            
          </form>
      </div>
      

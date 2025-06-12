@@ -3,6 +3,15 @@ session_start();
 require 'public/koneksi.php'; // koneksi menggunakan variabel $conn
 
 if (isset($_POST['login'])) {
+
+    // Jika login sebagai admin
+    if ($_POST["username"] == "admin" && $_POST["password"] == "admin") {
+        $_SESSION['login'] = true;
+        $_SESSION['username'] = "admin";
+        header("Location: admin/php/index.php");
+        exit;
+    }
+
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
 
@@ -27,6 +36,7 @@ if (isset($_POST['login'])) {
     }
 }
 ?>
+
 
  
  <!DOCTYPE html>
@@ -150,6 +160,7 @@ if (isset($_POST['login'])) {
     <input type="password" name="password" id="password" required>
 
     <button type="submit" name="login">Login</button>
+
 </form>
 
      </div>

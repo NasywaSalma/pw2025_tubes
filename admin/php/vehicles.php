@@ -199,13 +199,8 @@ $total_pendaftaran = count($data_pendaftaran);
                     <i class="bi bi-person-plus me-2"></i>Contact
                 </a>
             </li>
-             <li class="nav-item mb-2">
-                <a class="nav-link text-white" href="detail.php">
-                    <i class="bi bi-person-plus me-2"></i>info
-                </a>
-            </li>
             <li class="nav-item mb-2">
-                <a class="nav-link text-white" href="../../logout.php">
+                <a class="nav-link text-white" href="../../public/php/index.php">
                     <i class="bi bi-box-arrow-right me-2"></i>Logout
                 </a>
             </li>
