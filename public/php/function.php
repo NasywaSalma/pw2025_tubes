@@ -19,6 +19,8 @@ function query($query)
     return $rows;
 }
 
+
+
 //tambah produk cars
 function tambah_produk($data)
 {
@@ -65,7 +67,7 @@ function hapus_menu($id) {
     return mysqli_affected_rows($conn);
 }
 
-//tambah produk vehicles
+//ubah produk vehicles
 function tambah_vehicles($data)
 {
     $conn = koneksi();
